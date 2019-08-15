@@ -8,33 +8,35 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chsltutorials.nytbooks.R
+import com.chsltutorials.nytbooks.bases.BaseActivity
 import com.chsltutorials.nytbooks.model.entity.Book
 import com.chsltutorials.nytbooks.presentation.view.adapter.BookAdapter
 import com.chsltutorials.nytbooks.presentation.viewmodel.BookViewModel
 import kotlinx.android.synthetic.main.activity_books.*
+import kotlinx.android.synthetic.main.include_toolbar.*
 
-class BooksActivity : AppCompatActivity() {
+class BooksActivity : BaseActivity() {
 
-//    private val viewModel by lazy {
-//        ViewModelProviders.of(this).get(BookViewModel::class.java)
-//    }
-    lateinit var viewModel : BookViewModel
+    private val viewModel by lazy {
+          ViewModelProviders.of(this).get(BookViewModel::class.java)
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_books)
 
-        setSupportActionBar(toolbarMain)
-
-        viewModel = ViewModelProviders.of(this).get(BookViewModel::class.java)
+        setupToolbar(toolbarMain,R.string.title_toolbar)
 
         viewModel.booksLiveData.observe(this, Observer {
-            if (!it.isNullOrEmpty()){
+            if (!it.isNullOrEmpty()) {
                 with(rvBookList) {
                     layoutManager = LinearLayoutManager(context)
                     setHasFixedSize(true)
                     addItemDecoration(DividerItemDecoration(this@BooksActivity, LinearLayoutManager.VERTICAL))
-                    adapter = BookAdapter(it)
+                    adapter = BookAdapter(it) { book ->
+                        val intent = BookDetailsActivity.getStartIntent(this@BooksActivity, book.title, book.description)
+                        this@BooksActivity.startActivity(intent)
+                    }
                 }
             }
         })

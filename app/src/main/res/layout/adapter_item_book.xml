@@ -13,6 +13,7 @@
             android:layout_height="match_parent">
 
         <TextView
+                android:layout_marginTop="20dp"
                 android:id="@+id/tvTitle"
                 tools:text="Title"
                 android:textColor="#000"
@@ -26,12 +27,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-        <TextView
-                android:id="@+id/tvDescription"
-                tools:text="Description"
-                android:textColor="#000"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
 
     </LinearLayout>
 

@@ -33,7 +33,7 @@ class BookViewModel : ViewModel() {
                             bookList.add(book)
                         }
                         booksLiveData.value = bookList
-                    }else{
+                    } else {
                         Log.e("LISTA VAZIA", "Lista sem resultados")
                     }
 
