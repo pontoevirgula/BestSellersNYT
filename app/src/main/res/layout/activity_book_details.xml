@@ -9,8 +9,7 @@
         tools:context=".presentation.view.activity.BookDetailsActivity">
 
     <include
-            layout="@layout/include_toolbar"
-            app:titleTextColor="#000"/>
+            layout="@layout/include_toolbar"/>
 
     <LinearLayout
             android:orientation="vertical"

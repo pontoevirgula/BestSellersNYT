@@ -4,4 +4,7 @@
     <string name="title_toolbar_detail">Detalhes do Livro</string>
     <string name="label_book_details_title">Título</string>
     <string name="label_book_details_description">Descrição</string>
+    <string name="incorrect_key">Usuário não autorizado</string>
+    <string name="server_error">Erro no servidor.\n Tente novamente mais tarde</string>
+    <string name="error_without_treatment">Erro desconhecido.\n Estamos trabalhando para consertar</string>
 </resources>

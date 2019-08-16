@@ -2,7 +2,6 @@ package com.chsltutorials.nytbooks.presentation.view.activity
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.chsltutorials.nytbooks.R
 import com.chsltutorials.nytbooks.bases.BaseActivity
@@ -15,7 +14,7 @@ class BookDetailsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_details)
 
-        setupToolbar(toolbarMain,R.string.title_toolbar_detail,true)
+        setupToolbar(includeToolbar,R.string.title_toolbar_detail,true)
 
         intent.let {
             txtTitle.text = it.getStringExtra(EXTRA_TITLE)
