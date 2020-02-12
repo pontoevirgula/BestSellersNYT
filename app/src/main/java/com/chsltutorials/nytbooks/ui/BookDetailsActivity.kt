@@ -1,4 +1,4 @@
-package com.chsltutorials.nytbooks.presentation.view.activity
+package com.chsltutorials.nytbooks.ui
 
 import android.content.Context
 import android.content.Intent
