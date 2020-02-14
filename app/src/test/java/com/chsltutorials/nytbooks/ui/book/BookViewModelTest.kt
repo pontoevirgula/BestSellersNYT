@@ -28,6 +28,8 @@ class BookViewModelTest {
     private lateinit var viewFlipperLiveDataObserver : Observer<Pair<Int,Int?>>
 
     private lateinit var viewModel: BookViewModel
+    private var statusCode : Int? = 0
+
 
 //    @Before
 //    fun setup(){
@@ -68,7 +70,25 @@ class BookViewModelTest {
         verify(viewFlipperLiveDataObserver).onChanged(Pair(2, R.string.error_without_treatment))
     }
 
+    @Test
+    fun `when view model fetchBooks get failure then sets viewFlipperLiveData`(){
+        // Arrange
+        statusCode = 401
+        val resultFailure = MockRepository(BooksResult.Failure(statusCode!!))
+        viewModel = BookViewModel(resultFailure)
+        viewModel.viewFlipperLiveData.observeForever(viewFlipperLiveDataObserver)
 
+        // Act
+        viewModel.fetchBooks()
+
+        // Assert
+        if(statusCode == 401){
+            verify(viewFlipperLiveDataObserver).onChanged(Pair(2, R.string.incorrect_key))
+        }else{
+            verify(viewFlipperLiveDataObserver).onChanged(Pair(2, R.string.server_error))
+        }
+
+    }
 }
 
 class MockRepository(private val result: BooksResult) : BookRepository {
