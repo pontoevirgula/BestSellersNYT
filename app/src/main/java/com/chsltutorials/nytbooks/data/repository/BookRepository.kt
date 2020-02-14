@@ -1,6 +1,6 @@
-package com.chsltutorials.nytbooks.model.repository
+package com.chsltutorials.nytbooks.data.repository
 
-import com.chsltutorials.nytbooks.model.entity.BooksResult
+import com.chsltutorials.nytbooks.data.entity.BooksResult
 
 interface BookRepository {
 

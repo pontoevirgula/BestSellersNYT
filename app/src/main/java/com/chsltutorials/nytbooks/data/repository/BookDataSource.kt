@@ -1,12 +1,11 @@
-package com.chsltutorials.nytbooks.model.repository
+package com.chsltutorials.nytbooks.data.repository
 
 import android.util.Log
 import com.chsltutorials.nytbooks.bases.BaseRepository
-import com.chsltutorials.nytbooks.model.entity.Book
-import com.chsltutorials.nytbooks.model.entity.BooksResult
-import com.chsltutorials.nytbooks.model.service.NYTService
+import com.chsltutorials.nytbooks.data.entity.Book
+import com.chsltutorials.nytbooks.data.entity.BooksResult
+import com.chsltutorials.nytbooks.data.service.NYTService
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import retrofit2.HttpException
 

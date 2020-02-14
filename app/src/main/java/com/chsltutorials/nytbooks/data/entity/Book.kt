@@ -1,4 +1,4 @@
-package com.chsltutorials.nytbooks.model.entity
+package com.chsltutorials.nytbooks.data.entity
 
 data class Book(
     val author: String,

@@ -1,4 +1,4 @@
-package com.chsltutorials.nytbooks.model.entity
+package com.chsltutorials.nytbooks.data.entity
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable

@@ -1,13 +1,12 @@
-package com.chsltutorials.nytbooks.ui
+package com.chsltutorials.nytbooks.ui.book
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.chsltutorials.nytbooks.R
-import com.chsltutorials.nytbooks.model.entity.Book
-import com.chsltutorials.nytbooks.model.entity.BooksResult
-import com.chsltutorials.nytbooks.model.repository.BookRepository
-import io.reactivex.disposables.CompositeDisposable
+import com.chsltutorials.nytbooks.data.entity.Book
+import com.chsltutorials.nytbooks.data.entity.BooksResult
+import com.chsltutorials.nytbooks.data.repository.BookRepository
 import java.lang.IllegalArgumentException
 
 class BookViewModel(val dataSource: BookRepository) : ViewModel() {
@@ -39,7 +38,9 @@ class BookViewModel(val dataSource: BookRepository) : ViewModel() {
     class ViewModelFactory(val dataSource: BookRepository) : ViewModelProvider.Factory{
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(BookViewModel::class.java)) {
-                return BookViewModel(dataSource) as T
+                return BookViewModel(
+                    dataSource
+                ) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

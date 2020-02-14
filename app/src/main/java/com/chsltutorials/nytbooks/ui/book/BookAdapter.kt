@@ -1,11 +1,11 @@
-package com.chsltutorials.nytbooks.ui
+package com.chsltutorials.nytbooks.ui.book
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.chsltutorials.nytbooks.R
-import com.chsltutorials.nytbooks.model.entity.Book
+import com.chsltutorials.nytbooks.data.entity.Book
 import kotlinx.android.synthetic.main.adapter_item_book.view.*
 
 class BookAdapter(
@@ -15,7 +15,10 @@ class BookAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_item_book, parent, false)
-        return BookViewHolder(view, onItemClick)
+        return BookViewHolder(
+            view,
+            onItemClick
+        )
     }
 
     override fun getItemCount() = books.count()

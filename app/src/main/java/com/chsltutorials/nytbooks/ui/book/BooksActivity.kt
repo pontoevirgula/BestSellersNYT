@@ -1,19 +1,21 @@
-package com.chsltutorials.nytbooks.ui
+package com.chsltutorials.nytbooks.ui.book
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chsltutorials.nytbooks.R
 import com.chsltutorials.nytbooks.bases.BaseActivity
-import com.chsltutorials.nytbooks.model.repository.BookDataSource
+import com.chsltutorials.nytbooks.data.repository.BookDataSource
+import com.chsltutorials.nytbooks.ui.details.BookDetailsActivity
 import kotlinx.android.synthetic.main.activity_books.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
 class BooksActivity : BaseActivity() {
 
-    private val viewModel = BookViewModel.ViewModelFactory(BookDataSource())
+    private val viewModel = BookViewModel.ViewModelFactory(
+        BookDataSource()
+    )
                     .create(BookViewModel::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,15 +30,16 @@ class BooksActivity : BaseActivity() {
                     layoutManager = LinearLayoutManager(context)
                     setHasFixedSize(true)
                     addItemDecoration(DividerItemDecoration(this@BooksActivity, LinearLayoutManager.VERTICAL))
-                    adapter = BookAdapter(it) { book ->
-                        val intent =
-                            BookDetailsActivity.getStartIntent(
-                                this@BooksActivity,
-                                book.title,
-                                book.description
-                            )
-                        this@BooksActivity.startActivity(intent)
-                    }
+                    adapter =
+                        BookAdapter(it) { book ->
+                            val intent =
+                                BookDetailsActivity.getStartIntent(
+                                    this@BooksActivity,
+                                    book.title,
+                                    book.description
+                                )
+                            this@BooksActivity.startActivity(intent)
+                        }
                 }
             }
         })

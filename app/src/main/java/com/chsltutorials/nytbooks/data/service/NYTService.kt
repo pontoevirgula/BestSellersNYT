@@ -1,6 +1,6 @@
-package com.chsltutorials.nytbooks.model.service
+package com.chsltutorials.nytbooks.data.service
 
-import com.chsltutorials.nytbooks.model.entity.BookResponseAPI
+import com.chsltutorials.nytbooks.data.entity.BookResponseAPI
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

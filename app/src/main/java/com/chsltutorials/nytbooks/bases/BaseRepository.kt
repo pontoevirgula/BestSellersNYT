@@ -1,6 +1,6 @@
 package com.chsltutorials.nytbooks.bases
 
-import com.chsltutorials.nytbooks.model.repository.BookRepository
+import com.chsltutorials.nytbooks.data.repository.BookRepository
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseRepository : BookRepository.Presenter {
